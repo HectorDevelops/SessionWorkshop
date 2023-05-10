@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="~/css/individual.css" />
+
+<div class="Navigation">
+    @{
+        if (Context.Session.GetString("PersonName") != null)
+        {
+            <div class="topNav">
+                <h1>Welcome, @Context.Session.GetString("PersonName")!</h1>
+                <form asp-controller="Home" asp-action="ClearSession" method="POST">
+                    <input class="clear" type="submit" value="Logout">
+                </form>
+            </div>
+            <hr>
+
+            <div class="numDiv">
+                <h1>@Context.Session.GetInt32("PersonNumber")</h1>
+            </div>
+            <div class="updateSection">
+                <div class="plus">
+                    <form asp-controller="Home" asp-action="plus" method="POST">
+                        <input type="submit" value="+ 1">
+                    </form>
+                </div>
+                <div class="minus">
+                    <form asp-controller="Home" asp-action="minus" method="POST">
+                        <input type="submit" value="- 1">
+                    </form>
+                </div>
+                <div class="times">
+                    <form asp-controller="Home" asp-action="times" method="POST">
+                        <input type="submit" value="x 2">
+                    </form>
+                </div>
+                <div class="random">
+                    <form asp-controller="Home" asp-action="random" method="POST">
+                        <input type="submit" value="+ Random">
+                    </form>
+                </div>
+            </div>
+        }
+    }
+
+</div>
+
